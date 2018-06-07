@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20180606191004) do
     t.string "profile_img"
     t.string "location"
     t.string "bio"
+    t.string "genre"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

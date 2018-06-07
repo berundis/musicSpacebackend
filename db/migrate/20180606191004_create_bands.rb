@@ -5,8 +5,9 @@ class CreateBands < ActiveRecord::Migration[5.1]
       t.string :profile_img
       t.string :location
       t.string :bio
+      t.string :genre
       t.string :email
-      t.string :password
+      t.string :password_digest
 
       t.timestamps
     end

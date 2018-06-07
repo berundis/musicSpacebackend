@@ -1,29 +1,41 @@
 class Api::V1::BandsController < ApplicationController
-    
-    def index
-        bands = Band.all 
-        render json: bands 
-    end 
 
-    def show 
-    end 
+  before_action :set_band, only: [:show, :update, :destroy]
 
-    def create 
-    end 
+  def index
+    bands = Band.all
+    render json: bands, status: 200
+  end
 
-    def update 
-    end 
+  def create
+    band = Band.create(band_params)
+    render json: band, status: 201
+  end
 
-    def create 
-    end 
 
-    def destroy 
-    end 
+  def update
+    @band.update(band_params)
+    render json: @band, status: 200
+  end
 
-    private 
+  def destroy
+     bandId = @band.id
+     @band.destroy
+     render json: {message: "Band deleted!", bandId: bandId}
+  end
 
-    def band_params 
-        params.require(:band).permit(:name, :profile_img, :location, :bio, :email, :password)
-    end 
+  def show
+    render json: @band, status: 200
+  end
+
+  private
+
+  def band_params
+    params.require(:band).permit(:name, :profile_img, :location, :bio, :email, :password, :genre)
+  end
+
+  def set_band
+    @band = Band.find(params[:id])
+  end
 
 end
