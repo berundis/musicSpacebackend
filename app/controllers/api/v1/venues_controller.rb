@@ -8,8 +8,18 @@ class Api::V1::VenuesController < ApplicationController
   end
 
   def create
-    venue = Venue.create(venue_params)
-    render json: venue, status: 201
+    @venue = Venue.new
+    @venue.name = params[:name]
+    @venue.password = params[:password]
+    @venue.email = params[:email]
+
+    if (@venue.save)
+      render json: token_json(@venue)
+    else
+      render json: {
+        errors: @venue.errors.full_messages
+      }, status: :unprocessable_entity
+    end
   end
 
 

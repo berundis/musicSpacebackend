@@ -8,8 +8,18 @@ class Api::V1::BandsController < ApplicationController
   end
 
   def create
-    band = Band.create(band_params)
-    render json: band, status: 201
+    @band = Band.new
+    @band.name = params[:name]
+    @band.password = params[:password]
+    @band.email = params[:email]
+
+    if (@band.save)
+      render json: token_json(@band)
+    else
+      render json: {
+        errors: @band.errors.full_messages
+      }, status: :unprocessable_entity
+    end
   end
 
 
