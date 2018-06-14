@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :bands
       resources :venues
       resources :sessions
+      resources :shows
     end
   end
 

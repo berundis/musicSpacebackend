@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
 
   #### BAND or VENUE
   def generate_token(user)
-    puts ENV["JWT_PASSWORD"] 
+    puts ENV["JWT_PASSWORD"]
     puts "hi"
     JWT.encode({"user_id": user.id}, jwt_password, 'HS256')
   end
@@ -15,6 +15,7 @@ class ApplicationController < ActionController::API
     {
       email: user.email,
       user_id: user.id,
+      profile_type: user.profile_type,
       token: generate_token(user)
     }
   end

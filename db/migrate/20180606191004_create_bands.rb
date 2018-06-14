@@ -8,7 +8,7 @@ class CreateBands < ActiveRecord::Migration[5.1]
       t.string :genre
       t.string :email
       t.string :password_digest
-
+      t.string :profile_type
       t.timestamps
     end
   end

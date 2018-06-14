@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180608135411) do
     t.string "genre"
     t.string "email"
     t.string "password_digest"
+    t.string "profile_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180608135411) do
     t.string "email"
     t.string "password_digest"
     t.string "description"
+    t.string "profile_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

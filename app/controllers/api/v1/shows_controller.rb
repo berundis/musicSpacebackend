@@ -4,38 +4,40 @@ class Api::V1::ShowsController < ApplicationController
 
   def index
     shows = Show.all
-    render json: shows, status: 200
+    newAll = []
+    shows.each {|show| newAll.push({show: show, bands: show.bands})}
+    render json: newAll, status: 200
   end
-
-  def create
-    show = Show.create(show_params)
-    render json: show, status: 201
-  end
-
-
-  def update
-    @show.update(show_params)
-    render json: @show, status: 200
-  end
-
-  def destroy
-     showId = @show.id
-     @show.destroy
-     render json: {message: "Show deleted!", showId: showId}
-  end
-
-  def show
-    render json: @show, status: 200
-  end
-
-  private
-
-  def show_params
-    params.require(:show).permit(:name, :flyer)
-  end
-
-  def set_show
-    @show = Show.find(params[:id])
-  end
+  #
+  # def create
+  #   show = Show.create(show_params)
+  #   render json: show, status: 201
+  # end
+  #
+  #
+  # def update
+  #   @show.update(show_params)
+  #   render json: @show, status: 200
+  # end
+  #
+  # def destroy
+  #    showId = @show.id
+  #    @show.destroy
+  #    render json: {message: "Show deleted!", showId: showId}
+  # end
+  #
+  # def show
+  #   # render json: @show, status: 200
+  # end
+  #
+  # private
+  #
+  # def show_params
+  #   params.require(:show).permit(:name, :flyer)
+  # end
+  #
+  # def set_show
+  #   @show = Show.find(params[:id])
+  # end
 
 end

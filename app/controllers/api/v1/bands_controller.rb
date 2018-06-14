@@ -12,6 +12,11 @@ class Api::V1::BandsController < ApplicationController
     @band.name = params[:name]
     @band.password = params[:password]
     @band.email = params[:email]
+    @band.genre = params[:genre]
+    @band.location = params[:location]
+    @band.bio = params[:bio]
+    @band.profile_img = params[:profile_img]
+    @band.profile_type = "band"
 
     if (@band.save)
       render json: token_json(@band)
