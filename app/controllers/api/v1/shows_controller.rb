@@ -5,7 +5,7 @@ class Api::V1::ShowsController < ApplicationController
   def index
     shows = Show.all
     newAll = []
-    shows.each {|show| newAll.push({show: show, bands: show.bands})}
+    shows.each {|show| newAll.push({show: show, bands: show.bands, venue: show.venue})}
     render json: newAll, status: 200
   end
 
