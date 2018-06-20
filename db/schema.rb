@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 20180608135411) do
   create_table "bands", force: :cascade do |t|
     t.string "name"
     t.string "profile_img"
-    t.string "location"
+    t.string "city"
+    t.string "state"
     t.string "bio"
     t.string "genre"
     t.string "email"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180608135411) do
     t.string "name"
     t.string "flyer"
     t.integer "venue_id"
+    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,7 +48,8 @@ ActiveRecord::Schema.define(version: 20180608135411) do
   create_table "venues", force: :cascade do |t|
     t.string "name"
     t.string "profile_img"
-    t.string "location"
+    t.string "city"
+    t.string "state"
     t.string "genres"
     t.string "email"
     t.string "password_digest"

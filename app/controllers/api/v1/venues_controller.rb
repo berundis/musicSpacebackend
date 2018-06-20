@@ -12,12 +12,13 @@ class Api::V1::VenuesController < ApplicationController
     @venue.name = params[:name]
     @venue.password = params[:password]
     @venue.email = params[:email]
-    @venue.location = params[:location]
+    @venue.state = params[:state]
+    @venue.city = params[:city]
     @venue.profile_img = params[:profile_img]
     @venue.genres = params[:genres]
     @venue.description = params[:description]
     @venue.profile_type = "venue"
-
+  
     if (@venue.save)
       render json: token_json(@venue)
     else
@@ -46,7 +47,7 @@ class Api::V1::VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :profile_img, :location, :description, :email, :password, :genres)
+    params.require(:venue).permit(:name, :profile_img, :state, :city, :description, :email, :password, :genres)
   end
 
   def set_venue

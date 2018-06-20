@@ -3,7 +3,8 @@ class CreateVenues < ActiveRecord::Migration[5.1]
     create_table :venues do |t|
       t.string :name
       t.string :profile_img
-      t.string :location
+      t.string :city
+      t.string :state
       t.string :genres
       t.string :email
       t.string :password_digest

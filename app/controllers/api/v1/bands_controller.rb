@@ -13,7 +13,8 @@ class Api::V1::BandsController < ApplicationController
     @band.password = params[:password]
     @band.email = params[:email]
     @band.genre = params[:genre]
-    @band.location = params[:location]
+    @band.state = params[:state]
+    @band.city = params[:city]
     @band.bio = params[:bio]
     @band.profile_img = params[:profile_img]
     @band.profile_type = "band"
@@ -46,7 +47,7 @@ class Api::V1::BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:name, :profile_img, :location, :bio, :email, :password, :genre)
+    params.require(:band).permit(:name, :profile_img, :state, :city, :bio, :email, :password, :genre)
   end
 
   def set_band

@@ -13,6 +13,7 @@ class Api::V1::ShowsController < ApplicationController
     @show = Show.new
     @show.name = params[:name]
     @show.flyer = params[:flyer]
+    @show.date = params[:date]
     @show.venue_id = params[:venue_id]
     @show.band_ids = params[:band_ids]
     if (@show.save)
@@ -44,7 +45,7 @@ class Api::V1::ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :flyer, :venue_id, :band_ids)
+    params.require(:show).permit(:name, :flyer, :venue_id, :band_ids, :date)
   end
 
   def set_show

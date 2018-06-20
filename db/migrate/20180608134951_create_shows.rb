@@ -4,6 +4,7 @@ class CreateShows < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :flyer
       t.integer :venue_id
+      t.string :date
       t.timestamps
     end
   end
