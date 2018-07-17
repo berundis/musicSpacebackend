@@ -20,7 +20,7 @@ class Api::V1::BandsController < ApplicationController
     @band.profile_type = "band"
 
     if (@band.save)
-      render json: token_json(@band)
+      render json: @band, status: 200
     else
       render json: {
         errors: @band.errors.full_messages

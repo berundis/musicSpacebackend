@@ -17,7 +17,8 @@ class Api::V1::ShowsController < ApplicationController
     @show.venue_id = params[:venue_id]
     @show.band_ids = params[:band_ids]
     if (@show.save)
-      render json: @show
+      show = {show: @show, bands: @show.bands, venue: @show.venue}
+      render json: show, status: 200
     else
       render json: {
         errors: @show.errors.full_messages
@@ -28,7 +29,8 @@ class Api::V1::ShowsController < ApplicationController
 
   def update
     @show.update(show_params)
-    render json: @show, status: 200
+    show = {show: @show, bands: @show.bands, venue: @show.venue}
+    render json: show, status: 200
   end
 
   def destroy

@@ -18,9 +18,9 @@ class Api::V1::VenuesController < ApplicationController
     @venue.genres = params[:genres]
     @venue.description = params[:description]
     @venue.profile_type = "venue"
-  
+
     if (@venue.save)
-      render json: token_json(@venue)
+      render json: @venue, status: 200
     else
       render json: {
         errors: @venue.errors.full_messages
