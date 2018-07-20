@@ -1,24 +1,22 @@
-# README
+# MusicSpace API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Demo Video](https://www.youtube.com/watch?v=jox1A4WOzlU)
+[Front-End](https://github.com/donkeywaffles/musicSpaceFrontend)
 
-Things you may want to cover:
+## Models
+1. Bands
+2. Venues
+3. Shows
+4. BandShow (Join table)
 
-* Ruby version
+## Running the the program
 
-* System dependencies
+Make sure to run the local server in port 3000; all the fetch requests from the front-end are set up for this port. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle
+rails db:create
+rails db:migrate
+rails db:seed
+rails s
+```
